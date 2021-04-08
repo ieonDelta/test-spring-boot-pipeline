@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 
 //import com.home.camel.micro.b.beans.MyCurrencyExchangeProcessor;
 //import com.home.camel.micro.b.beans.MyCurrencyExchangeTransformer;
-import com.home.camel.micro.b.model.CurrencyExchange;
+//import com.home.camel.micro.b.model.CurrencyExchange;
 
 @Component
 public class ActiveMqReciverRouter extends RouteBuilder{
@@ -27,13 +27,16 @@ public class ActiveMqReciverRouter extends RouteBuilder{
 		//CurrencyExchange
 		//{ "id": 1001, "from": "EUR", "to": "INR", "conversionMultiple": 80 }
 		
-		from("activemq:mi-actividad-mq-xml-queue")
-		.unmarshal()
-		.jacksonxml(CurrencyExchange.class)
+		//from("activemq:mi-actividad-mq-xml-queue")
+		//.unmarshal()
+		//.jacksonxml(CurrencyExchange.class)
 		//.json(JsonLibrary.Jackson, CurrencyExchange.class)
 		//.bean(myCurrencyExchangeProcessor)
 		//.bean(myCurrencyExchangeTransforme)
-		.to("log:mensaje-recivido-de-mq-actividad");
+		//.to("log:mensaje-recivido-de-mq-actividad");
+		
+		from("activemq:split-queue")
+		.to("log:received-message-from-active-mq");
 		
 	}
 

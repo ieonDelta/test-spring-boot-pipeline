@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import com.home.camel.micro.a.beans.DeciderBean;
 
-@Component
+//@Component
 public class MyFileRouter extends RouteBuilder{
 	
 	@Autowired
@@ -14,8 +14,11 @@ public class MyFileRouter extends RouteBuilder{
 	
 	@Override
 	public void configure() throws Exception {
+		
+		
 		// TODO Auto-generated method stub
 		from("file:files/input")
+		//.pipeline()
 		.routeId("Files-Input-Route")
 		.transform().body(String.class)
 		.choice()

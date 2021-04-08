@@ -2,6 +2,7 @@ package com.home.camel.micro.b.model;
 
 import java.math.BigDecimal;
 
+
 public class CurrencyExchange {
 	private Long id;
 	private String from;

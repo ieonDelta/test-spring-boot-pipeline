@@ -1,7 +1,7 @@
 package com.home.camel.micro.a.routes.c;
 
 import org.apache.camel.builder.RouteBuilder;
-//import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Component;
 
 //@Component
 public class KafkaSenderRouter extends RouteBuilder{
